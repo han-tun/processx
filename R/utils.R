@@ -250,3 +250,9 @@ is_interactive <- function() {
     interactive()
   }
 }
+
+make_temp_fifo <- function() {
+  path <- tempfile()
+  rethrow_call(c_processx_make_fifo, path)
+  normalizePath(path)
+}
